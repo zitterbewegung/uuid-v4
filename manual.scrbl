@@ -1,18 +1,53 @@
 #lang scribble/manual
-@title{Welcome to my documentation for UUID v4}
+
+@(require scribble/eval
+          racket/sandbox
+          racket/runtime-path)
+
+@(define uuid-path "uuid-v4.rkt")
+
+@(define my-evaluator
+   (call-with-trusted-sandbox-configuration 
+    (lambda ()
+      (parameterize ([sandbox-output 'string]
+                     [sandbox-error-output 'string])
+        (make-evaluator 'racket
+	                #:requires
+                        (list uuid-path))))))
+
+@title{UUID v4}
+
+
 
 @section{Functions URN, UUID}
-@subsection{URN Example} 
-This is a thunk, no input is required. Also the the values that the real returns is actually randomized and this is only an example of what it will return.
-@racketblock[(urn)
-"urn:uuid:15959F2E-4933-4499-B02F-29BD966A5CBD"
+@subsection{@racket[urn] Example} 
+
+This is a thunk, no input is required. Also the the values that the
+real returns is actually randomized and this is only an example of
+what it will return.
+
+@interaction[#:eval my-evaluator
+                     (urn)
+                     (urn)
+                     (urn)
                    ]
-@subsection{Make-uuid Example}
-Note this is a thunk, no input is required. Also the the values that the real returns is actually randomized and this is only an example of what it will return
-@racketblock[(make-uuid)
-'29DA3AC9-274D-4A65-ACEF-D2B2F62ED2A5] 
-This code was derived from Gambit Scheme and is released under the LGPL
+@subsection{@racket[make-uuid] example}
+
+Note this is a thunk, no input is required. Also the the values that
+the real returns is actually randomized and this is only an example of
+what it will return
+
+@interaction[#:eval my-evaluator
+                    (make-uuid)
+                    (make-uuid)
+                    (make-uuid)]
+
+
+
+
 @section{License}
+This code was derived from Gambit Scheme and is released under the LGPL.
+@verbatim{
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -25,3 +60,4 @@ This code was derived from Gambit Scheme and is released under the LGPL
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+}
