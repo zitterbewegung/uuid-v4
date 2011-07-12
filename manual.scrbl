@@ -47,7 +47,7 @@ what it will return.
 @defproc[(make-uuid) symbol]{
 Note this is a thunk, no input is required. Also the the values that
 the real returns is actually randomized and this is only an example of
-what it will return
+what it will return.
 
 @interaction[#:eval my-evaluator
                     (make-uuid)
