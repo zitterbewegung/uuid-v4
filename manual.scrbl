@@ -12,7 +12,7 @@ Note this is a thunk, no input is required. Also the the values that the real re
 @racketblock[(make-uuid)
 '29DA3AC9-274D-4A65-ACEF-D2B2F62ED2A5] 
 This code was derived from Gambit Scheme and is released under the LGPL
-@section{Licence}
+@section{License}
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
