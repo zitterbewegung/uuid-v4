@@ -2,7 +2,13 @@
 
 @(require scribble/eval
           racket/sandbox
-          racket/runtime-path)
+          racket/runtime-path
+
+          planet/scribble
+          planet/version
+          planet/resolver
+
+          (for-label (this-package-in main)))
 
 @(define uuid-path "uuid-v4.rkt")
 
@@ -17,11 +23,12 @@
 
 @title{UUID v4}
 
-
+@defmodule/this-package[main]
 
 @section{Functions URN, UUID}
 @subsection{@racket[urn] Example} 
 
+@defproc[(urn) string]{
 This is a thunk, no input is required. Also the the values that the
 real returns is actually randomized and this is only an example of
 what it will return.
@@ -31,8 +38,13 @@ what it will return.
                      (urn)
                      (urn)
                    ]
+}
+
+
+
 @subsection{@racket[make-uuid] example}
 
+@defproc[(make-uuid) symbol]{
 Note this is a thunk, no input is required. Also the the values that
 the real returns is actually randomized and this is only an example of
 what it will return
@@ -41,7 +53,7 @@ what it will return
                     (make-uuid)
                     (make-uuid)
                     (make-uuid)]
-
+}
 
 
 

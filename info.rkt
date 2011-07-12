@@ -7,4 +7,4 @@
 (define repositories '("4.x"))
 (define categories '(devtools))
 (define version "0.4")
-(define scribblings '(("manual.scrbl" (multi-page))))
+(define scribblings '(("manual.scrbl" ())))
